@@ -1,0 +1,77 @@
+<html>
+<head>
+    <script src="{{url_for('static', filename='jquery.js')}}"></script>
+    <script src="{{url_for('static', filename='leaflet/leaflet.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='leaflet/leaflet.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='demo.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>OrganFinder</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="header">
+                    <h1>OrganFinder</h1>
+                    <h3><small>An Ontology-Based Method for Donor-Patient Organ Matching</small></h3>
+                    <p>Use the form below to enter a single donor information, and the map to the right will update with feasible patients waiting for a <span style="color: blue;">Liver</span> or <span style="color: red;">Kidney</span>
+ transplant.</p>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="HLA-DR Type">HLA-DR Type</label>
+                                    <input type="text" class="form-control" placeholder="Integer from 0 to 76", id="hlatype" name="hlatype">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="BloodType">Blood Type</label>
+                                    <select class="form-control" id="imcop" name='bloodtype'>
+                                        <option>A</option>
+                                        <option>B</option>
+                                        <option>O</option>
+                                        <option>AB</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Donor Location</label>
+                                <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Location", id="loc">
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" id="validate">Validate</button>
+                                  </span>
+                                </div><!-- /input-group -->
+                            </div>
+                            <div class="address-validation">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="organ">Organs</label>
+                                <div class="checkbox">
+                                  <label><input type="checkbox" name="kidney" value="true">Kidney</label>
+                                  <label><input type="checkbox" name="liver" value="true">Liver</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="search">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-default btn-block" id="reset">Reset Patients</button>
+                <div id="footer">
+                    <h5><small>BMI210/CS270 - Winter 2018 - Stanford University - William Du, Cindy Lin, Victoria Wang </small></h5>
+                </div>
+            </div>
+            <div class="col-md-8" style="padding-right: 0;">
+                <div id="mapid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{url_for('static', filename='demo.js')}}"></script>
+</body>
