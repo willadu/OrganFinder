@@ -27,7 +27,7 @@ It requires the name files in this repository to function.
 ```
 export FLASK_DEBUG=1
 export FLASK_APP=hello.py
-lask run
+flask run
 ```
 
 
